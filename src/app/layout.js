@@ -1,5 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { getDisplayName } from "next/dist/shared/lib/utils";
+import Link from "next/link";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -20,6 +22,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
+        <nav>
+          <ul style={{display: "flex", gap: 100}}>
+            <li><Link href="/">home</Link></li>
+            <li><Link href="/about">about</Link></li>
+            <li><Link href="/blog">blog</Link></li>
+          </ul>
+        </nav>
         {children}
       </body>
     </html>
